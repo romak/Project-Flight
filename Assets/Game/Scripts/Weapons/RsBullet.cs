@@ -6,7 +6,7 @@ public class RsBullet : RsAmmoBase
     [SerializeField]
     private float m_forwardSpeed = 20f;
 
-    void Update()
+    void FixedUpdate()
     {
         transform.Translate(Vector3.forward * (Time.deltaTime * m_forwardSpeed));
     }

@@ -25,8 +25,8 @@ public class RsPlayerHealth : MonoBehaviour
 
     void Awake()
     {
+
         playerSettings = GameObject.FindGameObjectWithTag("PlayerSettings").GetComponent<RsPlayerSettings>();
-        //  player = GameObject.FindGameObjectWithTag("Player");
         isDead = false;
 
         if (deathText!=null)

@@ -5,7 +5,7 @@ public class RsMissile : RsAmmoBase
 {
     public float m_forwardSpeed = 10f;
 
-    void Update()
+    void FixedUpdate()
     {
         transform.Translate(Vector3.forward * (Time.deltaTime * m_forwardSpeed));
     }

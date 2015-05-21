@@ -54,14 +54,15 @@ public class RsSimpleEnemyMovement : RsDamageBase //RsEnemyDamage
             Vector3 targetDir = target.position - transform.position;
             Vector3 forward = transform.forward;
             float angle = Vector3.Angle(targetDir, forward);
-            //float dist = Vector3.Distance(target.position, transform.position);
+            float dist = Vector3.Distance(target.position, transform.position);
 
             nextFire = Time.time + fireRate;
 
             //if (sightingDeltaPos.sqrMagnitude < 80f)
-            //if ((angle > 1f && angle <= 40f) && (dist > 6f))
-            if ((angle > 1f && angle <= 40f))
+            if ((angle > 1f && angle <= 40f) && (dist > 15f))
+            //if ((angle > 1f && angle <= 40f))
             {
+                print(dist);
                 Instantiate(missile, missilePos.position, transform.rotation);
             }
         }
