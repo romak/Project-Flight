@@ -11,13 +11,15 @@ public class RsScoreManager : MonoBehaviour {
     void Awake()
     {
         score = 0f;
-        scoreText.text = score.ToString();
+        if (scoreText != null)
+            scoreText.text = score.ToString();
     }
 
     public void Reset()
     {
         score = 0f;
-        scoreText.text = score.ToString();
+        if (scoreText != null)
+            scoreText.text = score.ToString();
     }
 
     public float GetScore()
@@ -28,7 +30,8 @@ public class RsScoreManager : MonoBehaviour {
     public void AddScore(float value)
     {
         score += value;
-        scoreText.text = score.ToString();
+        if (scoreText != null)
+            scoreText.text = score.ToString();
     }
 
 }

@@ -26,7 +26,7 @@ public class RsSimpleEnemyMovement : RsDamageBase //RsEnemyDamage
     bool isAttacking;
     bool isPatrolling;
 
-    float fireRate = 2.0f;
+    float fireRate = 3.0f;
     float nextFire;
 
     RsPlayerHealth playerHealth;
@@ -51,16 +51,16 @@ public class RsSimpleEnemyMovement : RsDamageBase //RsEnemyDamage
     {
         if (Time.time > nextFire)
         {
-
             Vector3 targetDir = target.position - transform.position;
             Vector3 forward = transform.forward;
             float angle = Vector3.Angle(targetDir, forward);
-            float dist = Vector3.Distance(target.position, transform.position);
+            //float dist = Vector3.Distance(target.position, transform.position);
 
             nextFire = Time.time + fireRate;
 
             //if (sightingDeltaPos.sqrMagnitude < 80f)
-            if ((angle > 1f && angle <= 40f) && (dist > 6f))
+            //if ((angle > 1f && angle <= 40f) && (dist > 6f))
+            if ((angle > 1f && angle <= 40f))
             {
                 Instantiate(missile, missilePos.position, transform.rotation);
             }
@@ -123,7 +123,7 @@ public class RsSimpleEnemyMovement : RsDamageBase //RsEnemyDamage
         }
         else if (isAttacking)
         {
-            seeYouTextMesh.text = "I kill you ! "+m_health.ToString();
+            seeYouTextMesh.text = "I kill you ! " + m_health.ToString();
             seeYouTextMesh.color = attackColor;
         }
     }
@@ -145,8 +145,9 @@ public class RsSimpleEnemyMovement : RsDamageBase //RsEnemyDamage
             gameObject.SetActive(false);
         }
 
-        if (sightingDeltaPos.sqrMagnitude < 70f)
+        if (sightingDeltaPos.sqrMagnitude < 1100f)
         {
+            //print(sightingDeltaPos.sqrMagnitude);
             seeYouText.SetActive(true);
             m_renderer.material.color = attackColor;
 

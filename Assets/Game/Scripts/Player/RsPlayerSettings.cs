@@ -41,7 +41,7 @@ public class RsPlayerSettings : MonoBehaviour
         filePath = Application.persistentDataPath + "/" + fileName;
 
         //Load();
-
+        return;
         GameObject.FindGameObjectWithTag("FPSCounter").SetActive(showFPS);
         GameObject.FindGameObjectWithTag("PauseButton").SetActive(showPauseButton);
         GameObject.FindGameObjectWithTag("RestartButton").SetActive(showRestartButton);

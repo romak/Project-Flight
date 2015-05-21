@@ -28,7 +28,9 @@ public class RsPlayerHealth : MonoBehaviour
         playerSettings = GameObject.FindGameObjectWithTag("PlayerSettings").GetComponent<RsPlayerSettings>();
         //  player = GameObject.FindGameObjectWithTag("Player");
         isDead = false;
-        deathText.enabled = false;
+
+        if (deathText!=null)
+            deathText.enabled = false;
         currentHealth = startingHealth;
         playerAudio = GetComponent<AudioSource>();
 
@@ -37,7 +39,8 @@ public class RsPlayerHealth : MonoBehaviour
     public void Reset()
     {
         isDead = false;
-        deathText.enabled = false;
+        if (deathText != null)
+            deathText.enabled = false;
         currentHealth = startingHealth;
     }
 
@@ -62,12 +65,16 @@ public class RsPlayerHealth : MonoBehaviour
 
     public int TakeDamage(int amount)
     {
+        damaged = true;
+
         if (playerSettings.infiniteLife)
             return currentHealth;
 
         damaged = true;
         currentHealth -= amount;
-        healthSlider.value = currentHealth;
+
+        if (healthSlider!=null)
+            healthSlider.value = currentHealth;
 
         if (playerAudio != null)
             playerAudio.Play();
@@ -90,7 +97,8 @@ public class RsPlayerHealth : MonoBehaviour
     public void Death()
     {
         isDead = true;
-        deathText.enabled = true;
+        if (deathText != null)
+            deathText.enabled = true;
         //playerAudio.clip = deathClip;
         //playerAudio.Play();
     }

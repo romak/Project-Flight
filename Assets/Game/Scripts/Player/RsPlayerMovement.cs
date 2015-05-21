@@ -18,7 +18,7 @@ public class RsPlayerMovement : MonoBehaviour
     public Vector3 cameraPosSpeedUp = new Vector3(0f, 2.5f, -1f);
 
     float backSpeed;
-    float maxUp = 3f;
+    public float maxUp = 10f;
     //    bool stopped = false;
 
     Vector3 forwardOffset = new Vector3(0, 0, 1f);
@@ -140,7 +140,7 @@ public class RsPlayerMovement : MonoBehaviour
         if (positionText != null)
             positionText.text = playerTransform.position.ToString();
 
-        followScript.offset = oldCcameraPos;
+        //followScript.offset = oldCcameraPos;
 
     }
 
@@ -195,6 +195,9 @@ public class RsPlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+
+        followScript.offset = oldCcameraPos;
+
         SetIdleAnimation();
         ProcessInput();
 

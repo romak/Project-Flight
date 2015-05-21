@@ -14,7 +14,6 @@ public class RsCrystal : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-
         if (other.gameObject.tag == "Player")
         {
             bonusManager.AddCrystals(1, gameObject.transform);

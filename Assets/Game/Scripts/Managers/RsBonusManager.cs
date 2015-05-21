@@ -35,13 +35,15 @@ public class RsBonusManager : MonoBehaviour
         fadeOn = false;
         audioSource = GetComponent<AudioSource>();
         crystals = 0f;
-        crystalText.text = crystals.ToString();
+        if (crystalText != null)
+            crystalText.text = crystals.ToString();
     }
 
     public void Reset()
     {
         crystals = 0f;
-        crystalText.text = crystals.ToString();
+        if (crystalText != null)
+            crystalText.text = crystals.ToString();
     }
 
     public float GetCrystals()
@@ -51,13 +53,17 @@ public class RsBonusManager : MonoBehaviour
 
     void Update()
     {
-        if (fadeOn)
+        if (fadeImage != null)
         {
-            fadeImage.color = fadeColor;
-        }
-        else
-        {
-            fadeImage.color = Color.Lerp(fadeImage.color, Color.clear, fadeSpeed * Time.deltaTime);
+
+            if (fadeOn)
+            {
+                fadeImage.color = fadeColor;
+            }
+            else
+            {
+                fadeImage.color = Color.Lerp(fadeImage.color, Color.clear, fadeSpeed * Time.deltaTime);
+            }
         }
 
         fadeOn = false;
@@ -66,14 +72,22 @@ public class RsBonusManager : MonoBehaviour
     public void AddCrystals(float value, Transform _transfrom)
     {
         fadeOn = true;
-        audioSource.clip = crystalSound;
-        audioSource.Play();
 
-        ParticleSystem ps = Instantiate(takeParticle, _transfrom.position, _transfrom.rotation) as ParticleSystem;
-        ps.Play();
+        if (crystalSound != null)
+        {
+            audioSource.clip = crystalSound;
+            audioSource.Play();
+        }
+
+        if (takeParticle != null)
+        {
+            ParticleSystem ps = Instantiate(takeParticle, _transfrom.position, _transfrom.rotation) as ParticleSystem;
+            ps.Play();
+        }
 
         crystals += value;
-        crystalText.text = crystals.ToString();
+        if (crystalText != null)
+            crystalText.text = crystals.ToString();
     }
 
 }
