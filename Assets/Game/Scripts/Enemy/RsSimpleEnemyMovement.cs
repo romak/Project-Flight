@@ -62,7 +62,6 @@ public class RsSimpleEnemyMovement : RsDamageBase //RsEnemyDamage
             if ((angle > 1f && angle <= 40f) && (dist > 15f))
             //if ((angle > 1f && angle <= 40f))
             {
-                print(dist);
                 Instantiate(missile, missilePos.position, transform.rotation);
             }
         }
