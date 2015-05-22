@@ -31,7 +31,8 @@ public class RsFuelManager : MonoBehaviour
             nextTime = Time.time + timeRate;
             fuel -= countRate;
             fuel = Mathf.Clamp(fuel, 0, 100);
-            slider.value = fuel;
+            if (slider!=null)
+                slider.value = fuel;
             if (fuel <= 0)
             {
                 fuelEmpty = true;

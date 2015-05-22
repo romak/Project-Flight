@@ -145,15 +145,13 @@ public class RsSimpleEnemyMovement : RsDamageBase //RsEnemyDamage
             gameObject.SetActive(false);
         }
 
-        if (sightingDeltaPos.sqrMagnitude < 1100f)
+        if (sightingDeltaPos.sqrMagnitude > 150f && sightingDeltaPos.sqrMagnitude < 1100f)
         {
-            //print(sightingDeltaPos.sqrMagnitude);
             seeYouText.SetActive(true);
             m_renderer.material.color = attackColor;
 
             isAttacking = true;
             Attacking();
-
         }
         else
         {

@@ -70,7 +70,6 @@ public class RsPlayerHealth : MonoBehaviour
         if (playerSettings.infiniteLife)
             return currentHealth;
 
-        damaged = true;
         currentHealth -= amount;
 
         if (healthSlider!=null)

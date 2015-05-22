@@ -15,9 +15,11 @@ public class RsHomingMissile : MonoBehaviour
 
     RsPlayerHealth playerHealth;
 
+    Rigidbody m_rigidBody;
+
     void Awake()
     {
-      //  rb = GetComponent<Rigidbody>();
+        m_rigidBody = GetComponent<Rigidbody>();
         playerHealth = GameObject.FindGameObjectWithTag("PlayerHealth").GetComponent<RsPlayerHealth>();
     }
 
@@ -46,19 +48,27 @@ public class RsHomingMissile : MonoBehaviour
 
     void FixedUpdate()
     {
-        GetComponent<Rigidbody>().AddForce(transform.TransformDirection(Vector3.forward) * speed);
+        //GetComponent<Rigidbody>().AddForce(transform.TransformDirection(Vector3.forward) * speed);
+        m_rigidBody.AddForce(transform.TransformDirection(Vector3.forward) * speed);
+
         target = FindClosestEnemy(targetTag);
 
         if (target != null)
         {
-            //print(target.name);
             Vector3 relativePos = target.transform.position - transform.position;
             Vector3 forward = transform.forward;
 
             float angle = Vector3.Angle(relativePos, forward);
             float dist = Vector3.Distance(target.transform.position, transform.position);
 
-            if ((angle >= 0f && angle <= 30f) && (dist > 3f))
+            // kill self if target backward missile
+            Vector3 dir = relativePos / relativePos.magnitude;
+            if (dir.z > 0.0f)
+            {
+                Destroy(gameObject, 0.5f);
+            }
+
+            if ((angle >= 0f && angle <= 25f) && (dist > 4f))
             {
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(relativePos), speed * Time.deltaTime);
             }
@@ -67,7 +77,7 @@ public class RsHomingMissile : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == targetTag)
         {
             playerHealth.TakeDamage(50);
         }
