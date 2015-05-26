@@ -7,10 +7,31 @@ public class RsGameManager : MonoBehaviour
     public RsLevelManager levelManager;
     public RsPauseManager pauseManager;
 
-    void Awake()
-    {
+    public GameObject mainCamera;
+    public GameObject freeCamera;
 
+    void Start()
+    {
+        mainCamera.SetActive(true);
+        freeCamera.SetActive(false);
     }
+
+    void ToggleCamera()
+    {
+        mainCamera.SetActive(!mainCamera.active);
+        freeCamera.SetActive(!freeCamera.active);
+        pauseManager.TogglePause();
+    }
+
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            ToggleCamera();
+        }
+    }
+
 
     void OnDestroy()
     {

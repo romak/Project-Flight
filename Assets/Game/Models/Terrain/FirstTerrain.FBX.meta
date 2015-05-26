@@ -1,24 +1,15 @@
 fileFormatVersion: 2
-guid: 5e7cd49c6b73c57418a7143c4a6e66c7
-timeCreated: 1432234966
+guid: 81226d8ec7434b74d8d02455123b4f31
+timeCreated: 1432671635
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
-    100000: 127435_original
-    100002: //RootNode
-    100004: Plane
-    400000: 127435_original
-    400002: //RootNode
-    400004: Plane
-    2300000: 127435_original
-    2300002: Plane
-    3300000: 127435_original
-    3300002: Plane
-    4300000: Plane
-    4300002: 127435_original
-    6400000: 127435_original
-    6400002: Plane
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Plane001
   materials:
     importMaterials: 1
     materialName: 0
@@ -40,10 +31,10 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     importBlendShapes: 1
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
@@ -56,7 +47,7 @@ ModelImporter:
   tangentSpace:
     normalSmoothAngle: 60
     splitTangentsAcrossUV: 1
-    normalImportMode: 1
+    normalImportMode: 0
     tangentImportMode: 1
   importAnimation: 1
   copyAvatar: 0
