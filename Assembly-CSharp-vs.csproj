@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Game\Scripts\Bonuses\RsCrystal.cs" />
+     <Compile Include="Assets\Game\Scripts\Camera\RsCameraAspectScript.cs" />
      <Compile Include="Assets\Game\Scripts\Camera\RsFollowTarget.cs" />
      <Compile Include="Assets\Game\Scripts\Enemy\Abstract\RsEnemyBase.cs" />
      <Compile Include="Assets\Game\Scripts\Enemy\RsEnemyDamage.cs" />

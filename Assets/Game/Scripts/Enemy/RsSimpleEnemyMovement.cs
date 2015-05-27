@@ -22,7 +22,7 @@ public class RsSimpleEnemyMovement : RsDamageBase //RsEnemyDamage
     TextMesh seeYouTextMesh;
 
     Renderer m_renderer;
-    Color attackColor = new Color(0, 0, 1);
+    Color attackColor = new Color(0, 1, 0);
     bool isAttacking;
     bool isPatrolling;
 
@@ -133,6 +133,15 @@ public class RsSimpleEnemyMovement : RsDamageBase //RsEnemyDamage
 
         isAttacking = false;
         isPatrolling = false;
+
+        if (playerHealth.IsDeath())
+        {
+            isAttacking = false;
+            seeYouText.SetActive(false);
+            isPatrolling = true;
+            Patrolling();
+            return;
+        }
 
         Vector3 sightingDeltaPos = target.position - transform.position;
 
