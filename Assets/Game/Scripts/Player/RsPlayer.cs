@@ -8,8 +8,6 @@ public class RsPlayer : MonoBehaviour
     public RsMissileLauncher m_missileLauncher2;
     RsPlayerHealth playerHealth;
 
-    //public Transform m_bulletPosition;
-
     void Awake()
     {
         m_gunLauncher = GetComponent<RsGunLauncher>();
@@ -19,24 +17,33 @@ public class RsPlayer : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftControl))
-        {
-            m_gunLauncher.Fire();
-        }
 
-        if (Input.GetKeyDown("space"))
+        if (!playerHealth.IsDeath())
         {
-            m_missileLauncher1.Fire();
-            m_missileLauncher2.Fire();
-        }
+            if (Input.GetKey(KeyCode.LeftControl))
+            {
+                m_gunLauncher.Fire();
+            }
 
+            if (Input.GetKeyDown("space"))
+            {
+                m_missileLauncher1.Fire();
+                m_missileLauncher2.Fire();
+            }
+        }
     }
 
-
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerExit(Collider other)
     {
-        //print(collision.gameObject.tag);
-        if (collision.gameObject.tag == "Static")
+        if (other.gameObject.tag == "LevelBounds")
+        {
+            playerHealth.Death();
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Static")
         {
             playerHealth.Death();
         }

@@ -11,11 +11,13 @@ public class RsAmmoBase : MonoBehaviour
 
     [SerializeField]
     protected AudioClip m_fireSound;
-    private AudioSource m_audioSource;
+    protected AudioSource m_audioSource;
+
+    protected Renderer m_renderer;
 
     void Awake()
     {
-        m_audioSource = GetComponent<AudioSource>();
+        //m_audioSource = GetComponent<AudioSource>();
     }
 
     public virtual RsAmmoBase SpawnAmmo(Transform _trasform)
@@ -31,8 +33,33 @@ public class RsAmmoBase : MonoBehaviour
 
     protected virtual void DamageTarget(GameObject target)
     {
-        //print("DamageTarget " + target.gameObject.tag);
         target.SendMessage("TakeDamage", m_hitDamage, SendMessageOptions.DontRequireReceiver);
+    }
+
+    protected virtual void OnTriggerEnter(Collider other)
+    {
+
+        if (RsRendererExtensions.IsVisibleFrom(m_renderer, Camera.main))
+        {
+            if ((other.gameObject.tag) == "Static")
+            {
+                Destroy(gameObject);
+            }
+
+            if ((other.gameObject.tag) == "Fuel")
+            {
+                Destroy(other.gameObject);
+                Destroy(gameObject);
+            }
+        }
+    }
+
+    protected virtual void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "LevelBounds")
+        {
+            Destroy(gameObject);
+        }
     }
 
 

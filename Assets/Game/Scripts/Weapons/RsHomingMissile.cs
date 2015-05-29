@@ -4,17 +4,12 @@ using System.Collections;
 public class RsHomingMissile : MonoBehaviour
 {
     public float speed = 40.0f;
-    //public ParticleSystem ps;
-    //public Transform psPosition;
-
     public string targetTag;
 
     GameObject target;
     GameObject lastTarget;
-    //Rigidbody rb;
 
     RsPlayerHealth playerHealth;
-
     Rigidbody m_rigidBody;
 
     void Awake()
@@ -48,7 +43,6 @@ public class RsHomingMissile : MonoBehaviour
 
     void FixedUpdate()
     {
-        //GetComponent<Rigidbody>().AddForce(transform.TransformDirection(Vector3.forward) * speed);
         m_rigidBody.AddForce(transform.TransformDirection(Vector3.forward) * speed);
 
         target = FindClosestEnemy(targetTag);
@@ -68,11 +62,20 @@ public class RsHomingMissile : MonoBehaviour
                 Destroy(gameObject, 0.5f);
             }
 
-            if ((angle >= 0f && angle <= 25f) && (dist > 4f))
+            if ((angle >= 0f && angle <= 20f) && (dist > 5f))
             {
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(relativePos), speed * Time.deltaTime);
             }
         }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Static")
+        {
+            Destroy(gameObject);
+        }
+
     }
 
     void OnCollisionEnter(Collision collision)

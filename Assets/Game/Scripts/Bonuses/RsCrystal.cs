@@ -17,7 +17,6 @@ public class RsCrystal : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             bonusManager.AddCrystals(1, gameObject.transform);
-            //gameObject.SetActive(false);
             Destroy(gameObject);
         }
     }

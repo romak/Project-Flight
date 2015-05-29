@@ -22,7 +22,7 @@ public class RsSimpleEnemyMovement : RsDamageBase //RsEnemyDamage
     TextMesh seeYouTextMesh;
 
     Renderer m_renderer;
-    Color attackColor = new Color(0, 1, 0);
+    Color attackColor = new Color(1, 0, 0);
     bool isAttacking;
     bool isPatrolling;
 
@@ -34,7 +34,6 @@ public class RsSimpleEnemyMovement : RsDamageBase //RsEnemyDamage
 
     void Awake()
     {
-
         agent = GetComponent<NavMeshAgent>();
         m_renderer = GetComponent<Renderer>();
         playerHealth = GameObject.FindGameObjectWithTag("PlayerHealth").GetComponent<RsPlayerHealth>();
@@ -82,7 +81,6 @@ public class RsSimpleEnemyMovement : RsDamageBase //RsEnemyDamage
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 4 * Time.deltaTime);
 
         FireHommingRocket();
-
     }
 
     void Chasing()
@@ -113,7 +111,9 @@ public class RsSimpleEnemyMovement : RsDamageBase //RsEnemyDamage
                 patrolTimer = 0;
             }
         }
-        agent.destination = patrolWayPoints[wayPointIndex].position;
+
+        if (agent.isActiveAndEnabled)
+            agent.destination = patrolWayPoints[wayPointIndex].position;
     }
 
     void DrawStatusText()
@@ -130,7 +130,6 @@ public class RsSimpleEnemyMovement : RsDamageBase //RsEnemyDamage
 
     void Update()
     {
-
         isAttacking = false;
         isPatrolling = false;
 
@@ -144,14 +143,12 @@ public class RsSimpleEnemyMovement : RsDamageBase //RsEnemyDamage
         }
 
         Vector3 sightingDeltaPos = target.position - transform.position;
-
-        //print(sightingDeltaPos.sqrMagnitude);
-        //print(target.transform.forward);
         Vector3 dir = (transform.position - target.position).normalized;
 
         if (dir.z <= 0f)
         {
             gameObject.SetActive(false);
+            return;
         }
 
         if (sightingDeltaPos.sqrMagnitude > 150f && sightingDeltaPos.sqrMagnitude < 1100f)

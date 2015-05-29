@@ -97,8 +97,7 @@ public class RsPlayerMovement : MonoBehaviour
     {
         Vector3 newPos = playerTransform.position + forwardOffset;
         playerTransform.position = Vector3.Lerp(playerTransform.position, newPos, forwardSpeed * Time.deltaTime);
-        followScript.offset = cameraPosSpeedUp; ;
-
+        followScript.offset = cameraPosSpeedUp;
     }
 
     public void MoveBack()
@@ -140,7 +139,7 @@ public class RsPlayerMovement : MonoBehaviour
         if (positionText != null)
             positionText.text = playerTransform.position.ToString();
 
-        //followScript.offset = oldCcameraPos;
+        followScript.offset = oldCcameraPos;
 
     }
 
@@ -172,7 +171,6 @@ public class RsPlayerMovement : MonoBehaviour
             }
         }
 
-
         if (Input.GetKey("left"))
             MoveLeft();
 
@@ -197,12 +195,12 @@ public class RsPlayerMovement : MonoBehaviour
     {
 
         followScript.offset = oldCcameraPos;
-
         SetIdleAnimation();
-        ProcessInput();
 
         if (!playerHealth.IsDeath())
         {
+            ProcessInput();
+
             playerTransform.position = new Vector3(playerTransform.position.x, playerTransform.position.y, (playerTransform.position.z + speed * Time.deltaTime));
             if (speed < maxSpeed)
             {
