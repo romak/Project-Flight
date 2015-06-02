@@ -41,12 +41,12 @@ public class RsAmmoBase : MonoBehaviour
 
         if (RsRendererExtensions.IsVisibleFrom(m_renderer, Camera.main))
         {
-            if ((other.gameObject.tag) == "Static")
+            if (other.gameObject.CompareTag("Static"))
             {
                 Destroy(gameObject);
             }
 
-            if ((other.gameObject.tag) == "Fuel")
+            if (other.gameObject.CompareTag("Fuel"))
             {
                 Destroy(other.gameObject);
                 Destroy(gameObject);
@@ -56,7 +56,7 @@ public class RsAmmoBase : MonoBehaviour
 
     protected virtual void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "LevelBounds")
+        if (other.gameObject.CompareTag("LevelBounds"))
         {
             Destroy(gameObject);
         }

@@ -35,7 +35,7 @@ public class RsPlayer : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "LevelBounds")
+        if (other.gameObject.CompareTag("LevelBounds"))
         {
             playerHealth.Death();
         }
@@ -43,7 +43,7 @@ public class RsPlayer : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Static")
+        if (other.gameObject.CompareTag("Static"))
         {
             playerHealth.Death();
         }

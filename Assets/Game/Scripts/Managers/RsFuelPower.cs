@@ -25,7 +25,7 @@ public class RsFuelPower : MonoBehaviour
 
     bool isPlayer(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.CompareTag("Player"))
             return true;
         return false;
     }

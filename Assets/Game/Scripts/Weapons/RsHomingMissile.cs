@@ -71,7 +71,7 @@ public class RsHomingMissile : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Static")
+        if (other.gameObject.CompareTag("Static"))
         {
             Destroy(gameObject);
         }
@@ -80,7 +80,7 @@ public class RsHomingMissile : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == targetTag)
+        if (collision.gameObject.CompareTag(targetTag))
         {
             playerHealth.TakeDamage(50);
         }
