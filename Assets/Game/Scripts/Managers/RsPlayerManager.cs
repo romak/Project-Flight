@@ -13,15 +13,20 @@ public class RsPlayerManager : MonoBehaviour
 
     ObjectResetter objectResetter;
 
+    void Awake()
+    {
+        if (player == null)
+            player = GameObject.FindGameObjectWithTag("Player");
+
+        objectResetter = player.GetComponent<ObjectResetter>();
+
+    }
+
     public bool IsDeath()
     {
         return playerHealth.IsDeath();
     }
 
-    void Start()
-    {
-        objectResetter = player.GetComponent<ObjectResetter>();
-    }
 
     public void AddScore(float value)
     {

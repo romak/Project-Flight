@@ -7,6 +7,13 @@ public class RsFollowTarget : MonoBehaviour
     public Vector3 offset = new Vector3(0f, 7.5f, 0f);
     public float smoothing = 2.0f;
 
+    void Awake()
+    {
+        if (target == null)
+            target = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
+
     private void LateUpdate()
     {
     }

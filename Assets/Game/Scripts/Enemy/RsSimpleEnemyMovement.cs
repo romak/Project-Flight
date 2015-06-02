@@ -44,6 +44,10 @@ public class RsSimpleEnemyMovement : RsDamageBase //RsEnemyDamage
         isPatrolling = false;
 
         seeYouTextMesh = seeYouText.GetComponent<TextMesh>();
+
+        if (target == null)
+            target = GameObject.FindGameObjectWithTag("Player").transform;
+
     }
 
     public void FireHommingRocket()

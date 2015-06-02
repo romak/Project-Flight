@@ -37,15 +37,6 @@ public class RsPlayerMovement : MonoBehaviour
 
     bool lockedInput;
 
-    public void LockInput()
-    {
-        lockedInput = true;
-    }
-
-    public void UnLockInput()
-    {
-        lockedInput = false;
-    }
 
     void Awake()
     {
@@ -55,6 +46,8 @@ public class RsPlayerMovement : MonoBehaviour
         followScript = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<RsFollowTarget>();
         oldCcameraPos = followScript.offset;
 
+        if (player == null)
+            player = GameObject.FindGameObjectWithTag("Player").GetComponent<RsPlayer>();
     }
 
     void Start()
@@ -69,6 +62,16 @@ public class RsPlayerMovement : MonoBehaviour
         downHash = Animator.StringToHash("MoveDown");
 
         playerTransform = player.transform;
+    }
+
+    public void LockInput()
+    {
+        lockedInput = true;
+    }
+
+    public void UnLockInput()
+    {
+        lockedInput = false;
     }
 
     public void MoveLeft()
