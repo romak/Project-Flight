@@ -23,6 +23,7 @@ public class RsPlayerHealth : MonoBehaviour
     bool isDead;
     RsPlayerSettings playerSettings;
 
+
     void Awake()
     {
 

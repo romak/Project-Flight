@@ -13,8 +13,24 @@ public class RsPlayerManager : MonoBehaviour
 
     ObjectResetter objectResetter;
 
+    public static RsPlayerManager m_instance = null;
+
+
+    void InitSingleton()
+    {
+        if (m_instance == null)
+            m_instance = this;
+        else if (m_instance != this)
+            Destroy(gameObject);
+
+        DontDestroyOnLoad(gameObject);
+    }
+
     void Awake()
     {
+        InitSingleton();
+        print("444");
+
         if (player == null)
             player = GameObject.FindGameObjectWithTag("Player");
 

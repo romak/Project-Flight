@@ -32,12 +32,19 @@ public class RsSimpleEnemyMovement : RsDamageBase //RsEnemyDamage
     RsPlayerHealth playerHealth;
     RsPlayerManager playerManager;
 
+
     void Awake()
     {
+
+        if (RsPlayerManager.m_instance == null)
+        {
+            Instantiate(playerManager);
+        }
+
         agent = GetComponent<NavMeshAgent>();
         m_renderer = GetComponent<Renderer>();
-        playerHealth = GameObject.FindGameObjectWithTag("PlayerHealth").GetComponent<RsPlayerHealth>();
-        playerManager = GameObject.FindWithTag("PlayerManager").GetComponent<RsPlayerManager>();
+//        playerHealth = GameObject.FindGameObjectWithTag("PlayerHealth").GetComponent<RsPlayerHealth>();
+        playerHealth = RsPlayerManager.m_instance.playerHealth;
 
         seeYouText.SetActive(false);
         isAttacking = false;
