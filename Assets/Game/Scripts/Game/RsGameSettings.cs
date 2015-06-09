@@ -45,6 +45,11 @@ public class RsGameSettings : MonoBehaviour
         Load();
     }
 
+    void Start()
+    {
+        gameBackgroundMusic.Play();
+    }
+
     void OnDestroy()
     {
         Save();
@@ -74,7 +79,6 @@ public class RsGameSettings : MonoBehaviour
             file.Close();
 
             SetValues();
-
         }
     }
 
