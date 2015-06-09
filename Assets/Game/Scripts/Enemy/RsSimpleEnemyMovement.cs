@@ -30,7 +30,7 @@ public class RsSimpleEnemyMovement : RsDamageBase //RsEnemyDamage
     float nextFire;
 
     RsPlayerHealth playerHealth;
-    RsPlayerManager playerManager;
+    RsPlayerManager playerManager = null;
 
 
     void Awake()

@@ -64,6 +64,7 @@
      <Compile Include="Assets\Game\Scripts\Managers\RsPauseManager.cs" />
      <Compile Include="Assets\Game\Scripts\Managers\RsPlayerManager.cs" />
      <Compile Include="Assets\Game\Scripts\Managers\RsScoreManager.cs" />
+     <Compile Include="Assets\Game\Scripts\Menu\RsMenuManager.cs" />
      <Compile Include="Assets\Game\Scripts\Player\Abstract\RsDamageBase.cs" />
      <Compile Include="Assets\Game\Scripts\Player\RsPlayer.cs" />
      <Compile Include="Assets\Game\Scripts\Player\RsPlayerHealth.cs" />

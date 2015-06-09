@@ -7,6 +7,12 @@ public class RsPauseManager : MonoBehaviour
     private float timeScaleRef = 1f;
     private float volumeRef = 1f;
 
+
+    public bool IsPaused()
+    {
+        return paused;
+    }
+
     public void TogglePause()
     {
         paused = !paused;

@@ -12,12 +12,12 @@ public class RsFuelPower : MonoBehaviour
     private float nextFuel = 0.0f;
 
     AudioSource audioSource;
-    MeshRenderer mesh;
+    //MeshRenderer mesh;
     RsFuelManager fuelManager;
 
     public void Awake()
     {
-        mesh = GetComponent<MeshRenderer>();
+      //  mesh = GetComponent<MeshRenderer>();
         audioSource = GetComponent<AudioSource>();
         fuelManager = GameObject.FindGameObjectWithTag("FuelManager").GetComponent<RsFuelManager>();
     }

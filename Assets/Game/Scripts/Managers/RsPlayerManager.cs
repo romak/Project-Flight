@@ -29,7 +29,6 @@ public class RsPlayerManager : MonoBehaviour
     void Awake()
     {
         InitSingleton();
-        print("444");
 
         if (player == null)
             player = GameObject.FindGameObjectWithTag("Player");

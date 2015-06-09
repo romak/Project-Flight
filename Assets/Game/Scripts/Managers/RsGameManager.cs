@@ -18,8 +18,8 @@ public class RsGameManager : MonoBehaviour
 
     void ToggleCamera()
     {
-        mainCamera.SetActive(!mainCamera.active);
-        freeCamera.SetActive(!freeCamera.active);
+        mainCamera.SetActive(!mainCamera.activeSelf);
+        freeCamera.SetActive(!freeCamera.activeSelf);
         pauseManager.TogglePause();
     }
 
@@ -39,11 +39,22 @@ public class RsGameManager : MonoBehaviour
 
     void OnApplicationPause(bool pauseStatus)
     {
-        if (pauseStatus)
+        if ((pauseStatus) && (!pauseManager.IsPaused()))
+        {
             pauseManager.TogglePauseOn();
+        }
 
-        if (!pauseStatus)
-            pauseManager.TogglePauseOff();
+     //   if ((!pauseStatus) && (pauseManager.IsPaused()))
+       //     pauseManager.TogglePauseOff();
     }
+
+
+    public void QuitGame()
+    {
+        // TODO: ask for action and animation, etc.
+
+        Application.Quit();
+    }
+
 
 }

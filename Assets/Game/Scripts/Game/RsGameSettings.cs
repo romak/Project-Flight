@@ -15,6 +15,8 @@ public class RsGameSettings : MonoBehaviour
         public float soundVolume;
         public float musicVolume;
 
+        public int renderQuality;
+
         public RsGameSettingData()
         {
             soundMute = false;
@@ -28,6 +30,8 @@ public class RsGameSettings : MonoBehaviour
     public bool musicMute;
     public float soundVolume = 1f;
     public float musicVolume = 1f;
+    public int renderQuality = 0;
+
     public AudioSource gameBackgroundMusic;
 
     private string fileName = "rs_settings.dat";
@@ -38,7 +42,7 @@ public class RsGameSettings : MonoBehaviour
     {
         filePath = Application.persistentDataPath + "/" + fileName;
 
-        //Load();
+        Load();
     }
 
     void OnDestroy()
@@ -52,6 +56,7 @@ public class RsGameSettings : MonoBehaviour
         gameSettingsData.soundMute = soundMute;
         gameSettingsData.soundVolume = soundVolume;
         gameSettingsData.musicVolume = musicVolume;
+        gameSettingsData.renderQuality = renderQuality;
 
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(filePath);
@@ -69,7 +74,17 @@ public class RsGameSettings : MonoBehaviour
             file.Close();
 
             SetValues();
+
         }
+    }
+
+    public void ApllySettings()
+    {
+        gameBackgroundMusic.mute = musicMute;
+        gameBackgroundMusic.volume = musicVolume;
+        AudioListener.volume = soundVolume;
+        AudioListener.pause = soundMute;
+
     }
 
     void SetValues()
@@ -80,6 +95,7 @@ public class RsGameSettings : MonoBehaviour
             soundMute = gameSettingsData.soundMute;
             musicVolume = gameSettingsData.musicVolume;
             soundVolume = gameSettingsData.soundVolume;
+            renderQuality = gameSettingsData.renderQuality;
 
             gameBackgroundMusic.mute = musicMute;
             gameBackgroundMusic.volume = musicVolume;
