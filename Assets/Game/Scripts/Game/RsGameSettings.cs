@@ -47,7 +47,8 @@ public class RsGameSettings : MonoBehaviour
 
     void Start()
     {
-        gameBackgroundMusic.Play();
+        if (gameBackgroundMusic != null)
+            gameBackgroundMusic.Play();
     }
 
     void OnDestroy()
@@ -101,8 +102,11 @@ public class RsGameSettings : MonoBehaviour
             soundVolume = gameSettingsData.soundVolume;
             renderQuality = gameSettingsData.renderQuality;
 
-            gameBackgroundMusic.mute = musicMute;
-            gameBackgroundMusic.volume = musicVolume;
+            if (gameBackgroundMusic != null)
+            {
+                gameBackgroundMusic.mute = musicMute;
+                gameBackgroundMusic.volume = musicVolume;
+            }
 
             AudioListener.volume = soundVolume;
             AudioListener.pause = soundMute;

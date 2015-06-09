@@ -27,7 +27,6 @@ public class RsPlayerSettings : MonoBehaviour
     public bool showPauseButton;
     public bool showRestartButton;
     public bool showFireButton;
-    public bool showResetButton;
 
     public bool infiniteFuel = true;
     public bool infiniteLife = true;
@@ -36,17 +35,23 @@ public class RsPlayerSettings : MonoBehaviour
     private string filePath;
     private RsPlayerSettingData playerSettingsData = new RsPlayerSettingData();
 
+    void FindAndSetActive(string name, bool active)
+    {
+        GameObject ob = GameObject.FindGameObjectWithTag(name);
+        if (ob != null)
+            ob.SetActive(active);
+    }
+
     void Awake()
     {
         filePath = Application.persistentDataPath + "/" + fileName;
 
-        //Load();
-        return;
-        GameObject.FindGameObjectWithTag("FPSCounter").SetActive(showFPS);
-        GameObject.FindGameObjectWithTag("PauseButton").SetActive(showPauseButton);
-        GameObject.FindGameObjectWithTag("RestartButton").SetActive(showRestartButton);
-        GameObject.FindGameObjectWithTag("FireButton").SetActive(showFireButton);
-        GameObject.FindGameObjectWithTag("ResetButton").SetActive(showResetButton);
+        Load();
+
+        FindAndSetActive("FPSCounter", showFPS);
+        FindAndSetActive("PauseButton", showPauseButton);
+        FindAndSetActive("RestartButton", showRestartButton);
+        FindAndSetActive("FireButton", showFireButton);
     }
 
     void OnDestroy()
@@ -61,7 +66,6 @@ public class RsPlayerSettings : MonoBehaviour
         playerSettingsData.showPauseButton = showPauseButton;
         playerSettingsData.showRestartButton = showRestartButton;
         playerSettingsData.showFireButton = showFireButton;
-        playerSettingsData.showResetButton = showResetButton;
         playerSettingsData.infiniteFuel = infiniteFuel;
         playerSettingsData.infiniteLife = infiniteLife;
 
@@ -93,7 +97,6 @@ public class RsPlayerSettings : MonoBehaviour
             showPauseButton = playerSettingsData.showPauseButton;
             showRestartButton = playerSettingsData.showRestartButton;
             showFireButton = playerSettingsData.showFireButton;
-            showResetButton = playerSettingsData.showResetButton;
             infiniteFuel = playerSettingsData.infiniteFuel;
             infiniteLife = playerSettingsData.infiniteLife;
         }

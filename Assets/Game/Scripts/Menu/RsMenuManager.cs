@@ -11,8 +11,13 @@ public class RsMenuManager : MonoBehaviour
     public Slider qualitySlider;
     public Text qualityText;
     public RsGameSettings gameSettings;
+    public RsPlayerSettings playerSettings;
+    public Slider musicVolumeSlider;
     public Toggle audioOff;
     public Toggle musOff;
+    public Toggle infiniteLife;
+    public Toggle infiniteFuel;
+    public Toggle showFPS;
 
     private AsyncOperation async;
     private string levelName;
@@ -34,6 +39,10 @@ public class RsMenuManager : MonoBehaviour
     {
         audioOff.isOn = gameSettings.soundMute;
         musOff.isOn = gameSettings.musicMute;
+        musicVolumeSlider.value = gameSettings.musicVolume;
+        infiniteLife.isOn = playerSettings.infiniteLife;
+        infiniteFuel.isOn = playerSettings.infiniteFuel;
+        showFPS.isOn = playerSettings.showFPS;
         SetSliderFromQuality(gameSettings.renderQuality);
     }
 
@@ -41,6 +50,27 @@ public class RsMenuManager : MonoBehaviour
     {
         gameSettings.soundMute = audioOff.isOn;
         gameSettings.ApllySettings();
+    }
+
+    public void OnMusicVolumeChange()
+    {
+        gameSettings.musicVolume = musicVolumeSlider.value;
+        gameSettings.ApllySettings();
+    }
+
+    public void OnShowFPSChange()
+    {
+        playerSettings.showFPS = showFPS.isOn;
+    }
+
+    public void OnInfiniteLifeChange()
+    {
+        playerSettings.infiniteLife = infiniteLife.isOn;
+    }
+
+    public void OnInfiniteFuelChange()
+    {
+        playerSettings.infiniteFuel = infiniteFuel.isOn;
     }
 
     public void OnMusicOffChange()
