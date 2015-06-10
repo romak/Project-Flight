@@ -41,6 +41,14 @@ public class RsPlayer : MonoBehaviour
         }
     }
 
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.CompareTag("Static"))
+        {
+            playerHealth.Death();
+        }
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Static"))

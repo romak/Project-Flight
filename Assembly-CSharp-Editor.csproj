@@ -46,6 +46,22 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Draw Call Minimizer\Scripts\NEW\Editor\DCMEditorWindow.cs" />
+     <Compile Include="Assets\Draw Call Minimizer\Scripts\NEW\Editor\DrawCallMinimizerInspector.cs" />
+     <Compile Include="Assets\Draw Call Minimizer\Scripts\NEW\Editor\Reorderable List\GenericListAdaptor.cs" />
+     <Compile Include="Assets\Draw Call Minimizer\Scripts\NEW\Editor\Reorderable List\IReorderableListAdaptor.cs" />
+     <Compile Include="Assets\Draw Call Minimizer\Scripts\NEW\Editor\Reorderable List\Internal\GUIHelper.cs" />
+     <Compile Include="Assets\Draw Call Minimizer\Scripts\NEW\Editor\Reorderable List\Internal\ReorderableListResources.cs" />
+     <Compile Include="Assets\Draw Call Minimizer\Scripts\NEW\Editor\Reorderable List\ReorderableListControl.cs" />
+     <Compile Include="Assets\Draw Call Minimizer\Scripts\NEW\Editor\Reorderable List\ReorderableListFlags.cs" />
+     <Compile Include="Assets\Draw Call Minimizer\Scripts\NEW\Editor\Reorderable List\ReorderableListGUI.cs" />
+     <Compile Include="Assets\Draw Call Minimizer\Scripts\NEW\Editor\Reorderable List\SerializedPropertyAdaptor.cs" />
+     <Compile Include="Assets\Draw Call Minimizer\Scripts\NEW\Editor\ShaderPropertyUtility.cs" />
+     <Compile Include="Assets\Draw Call Minimizer\Scripts\OLD\Editor\AssetExporter.cs" />
+     <Compile Include="Assets\Draw Call Minimizer\Scripts\OLD\Editor\CombineMeshInEditor.cs" />
+     <Compile Include="Assets\Draw Call Minimizer\Scripts\OLD\Editor\CombineMeshInEditorWindow.cs" />
+     <Compile Include="Assets\Draw Call Minimizer\Scripts\OLD\Editor\RevertFromDevelopmentBake.cs" />
+     <Compile Include="Assets\Draw Call Minimizer\Scripts\OLD\Editor\TextureExporter.cs" />
      <Compile Include="Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
@@ -53,6 +69,7 @@
      <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
+     <None Include="Assets\Draw Call Minimizer\Example\ReadMe.txt" />
      <None Include="Assets\Standard Assets\Environment\Water\Water\Shaders\FXWaterPro.shader" />
      <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\WaterInclude.cginc" />
