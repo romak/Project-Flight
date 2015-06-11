@@ -34,7 +34,7 @@ public class RsGameSettings : MonoBehaviour
 
     public AudioSource gameBackgroundMusic;
 
-    private string fileName = "rs_settings.dat";
+    private string fileName = "settings.dat";
     private string filePath;
     private RsGameSettingData gameSettingsData = new RsGameSettingData();
 

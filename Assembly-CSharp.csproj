@@ -87,8 +87,10 @@
      <Compile Include="Assets\Game\Scripts\Player\RsPlayerMovement.cs" />
      <Compile Include="Assets\Game\Scripts\Player\RsPlayerProfile.cs" />
      <Compile Include="Assets\Game\Scripts\Player\RsPlayerSettings.cs" />
+     <Compile Include="Assets\Game\Scripts\Utils\RsAdsManager.cs" />
      <Compile Include="Assets\Game\Scripts\Utils\RsDestroyByTime.cs" />
      <Compile Include="Assets\Game\Scripts\Utils\RsRendererExtensions.cs" />
+     <Compile Include="Assets\Game\Scripts\Utils\RsTouchPad.cs" />
      <Compile Include="Assets\Game\Scripts\Weapons\Abstract\RsAmmoBase.cs" />
      <Compile Include="Assets\Game\Scripts\Weapons\Abstract\RsWeaponLauncherBase.cs" />
      <Compile Include="Assets\Game\Scripts\Weapons\RsBullet.cs" />
@@ -98,11 +100,14 @@
      <Compile Include="Assets\Game\Scripts\Weapons\RsMissileLauncher.cs" />
      <Compile Include="Assets\Game\Scripts\Weapons\RsSimpleMissileDestroy.cs" />
      <Compile Include="Assets\Game\Scripts\Weapons\RsSimpleMissileLaunch.cs" />
+     <None Include="Assets\Plugins\Android\unityads\proguard-project.txt" />
+     <None Include="Assets\Plugins\Android\unityads\build.xml" />
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
      <None Include="Assets\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
      <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
+     <None Include="Assets\Plugins\Android\unityads\res\values\strings.xml" />
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
      <None Include="Assets\Draw Call Minimizer\Example\ReadMe.txt" />
      <None Include="Assets\Standard Assets\Environment\Water\Water\Shaders\FXWaterPro.shader" />
@@ -110,6 +115,7 @@
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\WaterInclude.cginc" />
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Advanced.shader" />
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
+     <None Include="Assets\Plugins\Android\unityads\AndroidManifest.xml" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Unity5/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

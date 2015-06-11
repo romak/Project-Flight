@@ -21,6 +21,9 @@ public class RsPlayerMovement : MonoBehaviour
     public float maxUp = 10f;
     //    bool stopped = false;
 
+    public RsTouchPad touchPadLeft;
+    public RsTouchPad touchPadRight;
+
     Vector3 forwardOffset = new Vector3(0, 0, 1f);
     Vector3 upOffset = new Vector3(0, 1f, 0);
     Vector3 downOffset = new Vector3(0, -1f, 0);
@@ -160,20 +163,27 @@ public class RsPlayerMovement : MonoBehaviour
         if (playerHealth.IsDeath() || lockedInput)
             return;
 
+        if (touchPadLeft.IsTouched())
+            MoveLeft();
+
+        if (touchPadRight.IsTouched())
+            MoveRight();
+
+/*
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
             if (touch.position.x < Screen.width / 2)
             {
-                MoveLeft();
+                //MoveLeft();
             }
 
             if (touch.position.x > Screen.width / 2)
             {
-                MoveRight();
+                //MoveRight();
             }
         }
-
+*/
         if (Input.GetKey("left"))
             MoveLeft();
 

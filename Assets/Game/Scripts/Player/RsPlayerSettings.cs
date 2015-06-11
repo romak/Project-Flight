@@ -13,7 +13,7 @@ public class RsPlayerSettings : MonoBehaviour
         public bool showPauseButton = true;
         public bool showRestartButton = true;
         public bool showFireButton = true;
-        public bool showResetButton = false;
+        public bool showResetButton = true;
         public bool infiniteFuel = true;
         public bool infiniteLife = true;
 
@@ -31,7 +31,7 @@ public class RsPlayerSettings : MonoBehaviour
     public bool infiniteFuel = true;
     public bool infiniteLife = true;
 
-    private string fileName = "rs_playerSettings.dat";
+    private string fileName = "playerSettings.dat";
     private string filePath;
     private RsPlayerSettingData playerSettingsData = new RsPlayerSettingData();
 
@@ -46,7 +46,7 @@ public class RsPlayerSettings : MonoBehaviour
     {
         filePath = Application.persistentDataPath + "/" + fileName;
 
-        Load();
+        //Load();
 
         FindAndSetActive("FPSCounter", showFPS);
         FindAndSetActive("PauseButton", showPauseButton);
