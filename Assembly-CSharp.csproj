@@ -101,6 +101,7 @@
      <Compile Include="Assets\Game\Scripts\Weapons\RsMissileLauncher.cs" />
      <Compile Include="Assets\Game\Scripts\Weapons\RsSimpleMissileDestroy.cs" />
      <Compile Include="Assets\Game\Scripts\Weapons\RsSimpleMissileLaunch.cs" />
+     <Compile Include="Assets\SimpleParticlePack\Scripts\ParticleTester.cs" />
      <None Include="Assets\Plugins\Android\unityads\proguard-project.txt" />
      <None Include="Assets\Plugins\Android\unityads\build.xml" />
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
