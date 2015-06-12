@@ -3,10 +3,18 @@ using System.Collections;
 
 public class RsPauseManager : MonoBehaviour
 {
+
+    public GameObject inGameMenu;
+
     private bool paused;
     private float timeScaleRef = 1f;
     private float volumeRef = 1f;
 
+
+    public void Awake()
+    {
+        inGameMenu.SetActive(false);
+    }
 
     public bool IsPaused()
     {
@@ -27,6 +35,8 @@ public class RsPauseManager : MonoBehaviour
 
     public void TogglePauseOn()
     {
+        inGameMenu.SetActive(true);
+
         timeScaleRef = Time.timeScale;
         Time.timeScale = 0f;
 
@@ -38,6 +48,8 @@ public class RsPauseManager : MonoBehaviour
 
     public void TogglePauseOff()
     {
+        inGameMenu.SetActive(false);
+
         Time.timeScale = timeScaleRef;
         AudioListener.volume = volumeRef;
         paused = false;

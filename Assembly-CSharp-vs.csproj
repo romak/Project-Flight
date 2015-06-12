@@ -91,6 +91,7 @@
      <Compile Include="Assets\Game\Scripts\Utils\RsDestroyByTime.cs" />
      <Compile Include="Assets\Game\Scripts\Utils\RsRendererExtensions.cs" />
      <Compile Include="Assets\Game\Scripts\Utils\RsTouchPad.cs" />
+     <Compile Include="Assets\Game\Scripts\Utils\RsUtils.cs" />
      <Compile Include="Assets\Game\Scripts\Weapons\Abstract\RsAmmoBase.cs" />
      <Compile Include="Assets\Game\Scripts\Weapons\Abstract\RsWeaponLauncherBase.cs" />
      <Compile Include="Assets\Game\Scripts\Weapons\RsBullet.cs" />

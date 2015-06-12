@@ -12,9 +12,9 @@ public class RsMenuManager : MonoBehaviour
     public Text qualityText;
     public RsGameSettings gameSettings;
     public RsPlayerSettings playerSettings;
-    public Slider musicVolumeSlider;
+    //public Slider musicVolumeSlider;
     public Toggle audioOff;
-    public Toggle musOff;
+    //public Toggle musOff;
     public Toggle infiniteLife;
     public Toggle infiniteFuel;
     public Toggle showFPS;
@@ -29,54 +29,71 @@ public class RsMenuManager : MonoBehaviour
         //canvasScaler.referenceResolution = new Vector2(Screen.width, Screen.height);
 
         levelName = "level_00";
-        mainMenu.SetActive(true);
-        settingMenu.SetActive(false);
-        loadingImage.SetActive(false);
+
+        RsUtils.SetActive(mainMenu, true);
+        RsUtils.SetActive(settingMenu, false);
+        RsUtils.SetActive(loadingImage, false);
 
     }
 
     void Start()
     {
-        audioOff.isOn = gameSettings.soundMute;
-        musOff.isOn = gameSettings.musicMute;
-        musicVolumeSlider.value = gameSettings.musicVolume;
-        infiniteLife.isOn = playerSettings.infiniteLife;
-        infiniteFuel.isOn = playerSettings.infiniteFuel;
-        showFPS.isOn = playerSettings.showFPS;
-        SetSliderFromQuality(gameSettings.renderQuality);
+        if (gameSettings != null)
+        {
+            audioOff.isOn = gameSettings.soundMute;
+            //musOff.isOn = gameSettings.musicMute;
+            //musicVolumeSlider.value = gameSettings.musicVolume;
+
+            if (infiniteLife!=null)
+                infiniteLife.isOn = playerSettings.infiniteLife;
+            if (infiniteFuel!=null)
+                infiniteFuel.isOn = playerSettings.infiniteFuel;
+            if (showFPS!=null)
+                showFPS.isOn = playerSettings.showFPS;
+            SetSliderFromQuality(gameSettings.renderQuality);
+        }
     }
 
     public void OnAudioOffChange()
     {
-        gameSettings.soundMute = audioOff.isOn;
-        gameSettings.ApllySettings();
+        if (gameSettings != null)
+        {
+            gameSettings.soundMute = audioOff.isOn;
+            gameSettings.ApllySettings();
+        }
     }
 
     public void OnMusicVolumeChange()
     {
-        gameSettings.musicVolume = musicVolumeSlider.value;
-        gameSettings.ApllySettings();
+        //if (gameSettings != null)
+        //{
+        //    gameSettings.musicVolume = musicVolumeSlider.value;
+        //    gameSettings.ApllySettings();
+        //}
     }
 
     public void OnShowFPSChange()
     {
-        playerSettings.showFPS = showFPS.isOn;
+        if (gameSettings != null)
+            playerSettings.showFPS = showFPS.isOn;
     }
 
     public void OnInfiniteLifeChange()
     {
-        playerSettings.infiniteLife = infiniteLife.isOn;
+        if (gameSettings != null)
+            playerSettings.infiniteLife = infiniteLife.isOn;
     }
 
     public void OnInfiniteFuelChange()
     {
-        playerSettings.infiniteFuel = infiniteFuel.isOn;
+        if (gameSettings != null)
+            playerSettings.infiniteFuel = infiniteFuel.isOn;
     }
 
     public void OnMusicOffChange()
     {
-        gameSettings.musicMute = musOff.isOn;
-        gameSettings.ApllySettings();
+        //gameSettings.musicMute = musOff.isOn;
+        //gameSettings.ApllySettings();
     }
 
     void SetSliderFromQuality(int value)
@@ -93,25 +110,29 @@ public class RsMenuManager : MonoBehaviour
 
     void SetRenderQuality(int value)
     {
-        if (value == 0)
+        if (gameSettings != null)
         {
-            qualityText.text = "Low";
-            gameSettings.renderQuality = 0;
-            QualitySettings.SetQualityLevel(1);
-        }
 
-        if (value == 1)
-        {
-            qualityText.text = "Normal";
-            gameSettings.renderQuality = 3;
-            QualitySettings.SetQualityLevel(3);
-        }
+            if (value == 0)
+            {
+                qualityText.text = "Low";
+                gameSettings.renderQuality = 0;
+                QualitySettings.SetQualityLevel(1);
+            }
 
-        if (qualitySlider.value == 2)
-        {
-            qualityText.text = "High";
-            gameSettings.renderQuality = 5;
-            QualitySettings.SetQualityLevel(5);
+            if (value == 1)
+            {
+                qualityText.text = "Normal";
+                gameSettings.renderQuality = 3;
+                QualitySettings.SetQualityLevel(3);
+            }
+
+            if (qualitySlider.value == 2)
+            {
+                qualityText.text = "High";
+                gameSettings.renderQuality = 5;
+                QualitySettings.SetQualityLevel(5);
+            }
         }
     }
 
@@ -143,17 +164,13 @@ public class RsMenuManager : MonoBehaviour
     public void NewGame()
     {
         loadingImage.SetActive(true);
-
         StartCoroutine(LoadLevel());
     }
 
     public void QuitGame()
     {
         // TODO: ask for action and animation, etc.
-
         Application.Quit();
     }
-
-
 
 }

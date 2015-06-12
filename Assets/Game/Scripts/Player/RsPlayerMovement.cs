@@ -45,16 +45,21 @@ public class RsPlayerMovement : MonoBehaviour
     {
         backSpeed = speed / 2;
         lockedInput = false;
+
+    }
+
+    void Start()
+    {
+
         playerHealth = GameObject.FindGameObjectWithTag("PlayerHealth").GetComponent<RsPlayerHealth>();
         followScript = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<RsFollowTarget>();
         oldCcameraPos = followScript.offset;
 
         if (player == null)
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<RsPlayer>();
-    }
 
-    void Start()
-    {
+//        print(player);
+
         animator = player.GetComponent<Animator>();
         if (animator == null)
             Debug.Log("Cannot find 'Animator' component");

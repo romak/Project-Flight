@@ -13,9 +13,9 @@ public class RsPlayerManager : MonoBehaviour
 
     ObjectResetter objectResetter;
 
-    public static RsPlayerManager m_instance = null;
+    //public static RsPlayerManager m_instance = null;
 
-
+/*
     void InitSingleton()
     {
         if (m_instance == null)
@@ -25,10 +25,10 @@ public class RsPlayerManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
     }
-
+    */
     void Awake()
     {
-        InitSingleton();
+      //  InitSingleton();
 
         if (player == null)
             player = GameObject.FindGameObjectWithTag("Player");

@@ -18,13 +18,13 @@ public class RsLevelManager : MonoBehaviour
     public void RestartLevel()
     {
         Time.timeScale = 1f;
-        Application.LoadLevelAsync(Application.loadedLevel);
+        Application.LoadLevel(Application.loadedLevel);
     }
 
     public void RestartLevelByName(string levelName)
     {
         Time.timeScale = 1f;
-        Application.LoadLevelAsync(levelName);
+        Application.LoadLevel(levelName);
     }
 
     void OnApplicationQuit()
