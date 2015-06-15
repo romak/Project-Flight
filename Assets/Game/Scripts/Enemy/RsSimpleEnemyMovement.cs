@@ -45,7 +45,8 @@ public class RsSimpleEnemyMovement : RsDamageBase //RsEnemyDamage
         agent = GetComponent<NavMeshAgent>();
         m_renderer = GetComponent<Renderer>();
         playerHealth = GameObject.FindGameObjectWithTag("PlayerHealth").GetComponent<RsPlayerHealth>();
-//        playerHealth = RsPlayerManager.m_instance.playerHealth;
+        playerManager = GameObject.FindGameObjectWithTag("PlayerManager").GetComponent<RsPlayerManager>();
+        //        playerHealth = RsPlayerManager.m_instance.playerHealth;
 
         seeYouText.SetActive(false);
         isAttacking = false;
