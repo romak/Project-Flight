@@ -5,17 +5,6 @@ using UnityEngine.UI;
 public class RsBonusManager : MonoBehaviour
 {
 
-    public class CrystalInfo
-    {
-        public int a;
-
-        public CrystalInfo()
-        {
-        }
-
-    };
-
-    public CrystalInfo crystalInfo = new CrystalInfo();
     public Text crystalText;
     public ParticleSystem takeParticle;
     public AudioClip crystalSound;
@@ -29,21 +18,28 @@ public class RsBonusManager : MonoBehaviour
     AudioSource audioSource;
 
     float crystals = 0f;
+    float crystalsPrev = 0f;
+
+    void UpdateCrystalsText()
+    {
+        if ((crystalText != null)&&(crystals != crystalsPrev))
+            crystalText.text = crystals.ToString();
+        crystalsPrev = crystals;
+    }
 
     void Awake()
     {
         fadeOn = false;
         audioSource = GetComponent<AudioSource>();
         crystals = 0f;
-        if (crystalText != null)
-            crystalText.text = crystals.ToString();
+
+        UpdateCrystalsText();
     }
 
     public void Reset()
     {
         crystals = 0f;
-        if (crystalText != null)
-            crystalText.text = crystals.ToString();
+        UpdateCrystalsText();
     }
 
     public float GetCrystals()
@@ -86,8 +82,7 @@ public class RsBonusManager : MonoBehaviour
         }
 
         crystals += value;
-        if (crystalText != null)
-            crystalText.text = crystals.ToString();
+        UpdateCrystalsText();
     }
 
 }

@@ -47,8 +47,14 @@ public class RsGameSettings : MonoBehaviour
 
     void Start()
     {
+
         if (gameBackgroundMusic != null)
+        {
+            gameBackgroundMusic.mute = musicMute;
+            gameBackgroundMusic.volume = musicVolume;
+            
             gameBackgroundMusic.Play();
+        }
     }
 
     void OnDestroy()
@@ -91,6 +97,7 @@ public class RsGameSettings : MonoBehaviour
             gameBackgroundMusic.mute = musicMute;
             gameBackgroundMusic.volume = musicVolume;
         }
+
         AudioListener.volume = soundVolume;
         AudioListener.pause = soundMute;
 
