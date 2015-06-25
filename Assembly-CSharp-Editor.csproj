@@ -63,6 +63,7 @@
      <Compile Include="Assets\Draw Call Minimizer\Scripts\OLD\Editor\RevertFromDevelopmentBake.cs" />
      <Compile Include="Assets\Draw Call Minimizer\Scripts\OLD\Editor\TextureExporter.cs" />
      <Compile Include="Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
+     <Compile Include="Assets\Editor\ExportAssetBundles.cs" />
      <None Include="Assets\Plugins\Android\unityads\proguard-project.txt" />
      <None Include="Assets\Plugins\Android\unityads\build.xml" />
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
