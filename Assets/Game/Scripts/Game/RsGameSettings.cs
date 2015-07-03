@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using UnityEngine.Audio;
 
 public class RsGameSettings : MonoBehaviour
 {
@@ -21,18 +22,18 @@ public class RsGameSettings : MonoBehaviour
         {
             soundMute = false;
             musicMute = false;
-            soundVolume = 1f;
-            musicVolume = 1f;
+            soundVolume = 0f;
+            musicVolume = 0f;
         }
     }
 
     public bool soundMute;
     public bool musicMute;
-    public float soundVolume = 1f;
-    public float musicVolume = 1f;
+    public float soundVolume = 0f;
+    public float musicVolume = 0f;
     public int renderQuality = 0;
 
-    public AudioSource gameBackgroundMusic;
+    public AudioMixer mainMixer;					//Used to hold a reference to the AudioMixer mainMixer
 
     private string fileName = "settings.dat";
     private string filePath;
@@ -47,14 +48,6 @@ public class RsGameSettings : MonoBehaviour
 
     void Start()
     {
-
-        if (gameBackgroundMusic != null)
-        {
-            gameBackgroundMusic.mute = musicMute;
-            gameBackgroundMusic.volume = musicVolume;
-            
-            gameBackgroundMusic.Play();
-        }
     }
 
     void OnDestroy()
@@ -64,6 +57,12 @@ public class RsGameSettings : MonoBehaviour
 
     public void Save()
     {
+
+        mainMixer.GetFloat("sfxVol", out soundVolume);
+        mainMixer.GetFloat("musicVol",out musicVolume);
+
+        print("Save "+musicVolume);
+
         gameSettingsData.musicMute = musicMute;
         gameSettingsData.soundMute = soundMute;
         gameSettingsData.soundVolume = soundVolume;
@@ -86,21 +85,15 @@ public class RsGameSettings : MonoBehaviour
             file.Close();
 
             SetValues();
+
+            ApllySettings();
         }
     }
 
     public void ApllySettings()
     {
-        if (gameBackgroundMusic!=null)
-        {
-
-            gameBackgroundMusic.mute = musicMute;
-            gameBackgroundMusic.volume = musicVolume;
-        }
-
-        AudioListener.volume = soundVolume;
-        AudioListener.pause = soundMute;
-
+        mainMixer.SetFloat("sfxVol", gameSettingsData.soundVolume);
+        mainMixer.SetFloat("musicVol", gameSettingsData.musicVolume);
     }
 
     void SetValues()
@@ -112,19 +105,20 @@ public class RsGameSettings : MonoBehaviour
             musicVolume = gameSettingsData.musicVolume;
             soundVolume = gameSettingsData.soundVolume;
             renderQuality = gameSettingsData.renderQuality;
-
-            if (gameBackgroundMusic != null)
-            {
-                gameBackgroundMusic.mute = musicMute;
-                gameBackgroundMusic.volume = musicVolume;
-            }
-
-            AudioListener.volume = soundVolume;
-            AudioListener.pause = soundMute;
         }
 
     }
 
+    public void SetMusicLevel(float musicLvl)
+    {
+        mainMixer.SetFloat("musicVol", musicLvl);
+    }
+
+    //Call this function and pass in the float parameter sfxLevel to set the volume of the AudioMixerGroup SoundFx in mainMixer
+    public void SetSfxLevel(float sfxLevel)
+    {
+        mainMixer.SetFloat("sfxVol", sfxLevel);
+    }
 
 }
 

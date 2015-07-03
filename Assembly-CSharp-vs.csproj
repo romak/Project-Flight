@@ -89,6 +89,8 @@
      <Compile Include="Assets\Game\Scripts\Player\RsPlayerSettings.cs" />
      <Compile Include="Assets\Game\Scripts\Utils\RsAdsManager.cs" />
      <Compile Include="Assets\Game\Scripts\Utils\RsDestroyByTime.cs" />
+     <Compile Include="Assets\Game\Scripts\Utils\RsDontDestroy.cs" />
+     <Compile Include="Assets\Game\Scripts\Utils\RsMusicPlay.cs" />
      <Compile Include="Assets\Game\Scripts\Utils\RsRendererExtensions.cs" />
      <Compile Include="Assets\Game\Scripts\Utils\RsTouchPad.cs" />
      <Compile Include="Assets\Game\Scripts\Utils\RsUtils.cs" />

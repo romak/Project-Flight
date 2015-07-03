@@ -44,8 +44,8 @@ public class RsGameManager : MonoBehaviour
             pauseManager.TogglePauseOn();
         }
 
-     //   if ((!pauseStatus) && (pauseManager.IsPaused()))
-       //     pauseManager.TogglePauseOff();
+        //   if ((!pauseStatus) && (pauseManager.IsPaused()))
+        //     pauseManager.TogglePauseOff();
     }
 
 
@@ -53,7 +53,15 @@ public class RsGameManager : MonoBehaviour
     {
         // TODO: ask for action and animation, etc.
 
+#if UNITY_STANDALONE
         Application.Quit();
+#endif
+
+        //If we are running in the editor
+#if UNITY_EDITOR
+        //Stop playing the scene
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
     }
 
 

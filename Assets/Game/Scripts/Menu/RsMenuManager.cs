@@ -10,6 +10,7 @@ public class RsMenuManager : MonoBehaviour
     public Slider loadingSlider;
     public Slider qualitySlider;
     public Slider musicSlider;
+    public Slider audioSlider;
     public Text qualityText;
     public RsGameSettings gameSettings;
     public RsPlayerSettings playerSettings;
@@ -27,7 +28,6 @@ public class RsMenuManager : MonoBehaviour
     {
         //CanvasScaler canvasScaler = GetComponent<CanvasScaler>();
         //canvasScaler.referenceResolution = new Vector2(Screen.width, Screen.height);
-
         levelName = "level_00";
 
         RsUtils.SetActive(mainMenu, true);
@@ -38,20 +38,22 @@ public class RsMenuManager : MonoBehaviour
 
     void Start()
     {
+
+        print("-- "+gameSettings.musicVolume);
         if (gameSettings != null)
         {
             audioOff.isOn = gameSettings.soundMute;
-            
+
             if (musicOff != null)
                 musicOff.isOn = gameSettings.musicMute;
             if (musicSlider != null)
                 musicSlider.value = gameSettings.musicVolume;
 
-            if (infiniteLife!=null)
+            if (infiniteLife != null)
                 infiniteLife.isOn = playerSettings.infiniteLife;
-            if (infiniteFuel!=null)
+            if (infiniteFuel != null)
                 infiniteFuel.isOn = playerSettings.infiniteFuel;
-            if (showFPS!=null)
+            if (showFPS != null)
                 showFPS.isOn = playerSettings.showFPS;
             SetSliderFromQuality(gameSettings.renderQuality);
         }
@@ -96,7 +98,6 @@ public class RsMenuManager : MonoBehaviour
     public void OnMusicOffChange()
     {
         gameSettings.musicMute = musicOff.isOn;
-        
         gameSettings.ApllySettings();
     }
 
@@ -174,7 +175,16 @@ public class RsMenuManager : MonoBehaviour
     public void QuitGame()
     {
         // TODO: ask for action and animation, etc.
-        Application.Quit();
+#if UNITY_STANDALONE
+		//Quit the application
+		Application.Quit();
+#endif
+
+        //If we are running in the editor
+#if UNITY_EDITOR
+        //Stop playing the scene
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
     }
 
 }
