@@ -114,6 +114,9 @@
  <Reference Include="UnityEditor.BB10.Extensions">
  <HintPath>D:/Unity5/Editor/Data/PlaybackEngines/blackberryplayer/UnityEditor.BB10.Extensions.dll</HintPath>
  </Reference>
+ <Reference Include="UnityEditor.Tizen.Extensions">
+ <HintPath>D:/Unity5/Editor/Data/PlaybackEngines/TizenPlayer/TizenPlayer/UnityEditor.Tizen.Extensions.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.SamsungTV.Extensions">
  <HintPath>D:/Unity5/Editor/Data/PlaybackEngines/stvplayer/STVPlayer/UnityEditor.SamsungTV.Extensions.dll</HintPath>
  </Reference>
