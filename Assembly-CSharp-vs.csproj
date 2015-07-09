@@ -46,22 +46,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Draw Call Minimizer\Scripts\NEW\Runtime\DrawCallMinimizer.cs" />
-     <Compile Include="Assets\Draw Call Minimizer\Scripts\NEW\Utility\CommonShaderProperties.cs" />
-     <Compile Include="Assets\Draw Call Minimizer\Scripts\NEW\Utility\DrawCallMinimizerInfo.cs" />
-     <Compile Include="Assets\Draw Call Minimizer\Scripts\NEW\Utility\MatrixExtension.cs" />
-     <Compile Include="Assets\Draw Call Minimizer\Scripts\NEW\Utility\MeshCombineUtility.cs" />
-     <Compile Include="Assets\Draw Call Minimizer\Scripts\NEW\Utility\MeshExporter.cs" />
-     <Compile Include="Assets\Draw Call Minimizer\Scripts\NEW\Utility\MeshInstance.cs" />
-     <Compile Include="Assets\Draw Call Minimizer\Scripts\NEW\Utility\ShaderProperties.cs" />
-     <Compile Include="Assets\Draw Call Minimizer\Scripts\NEW\Utility\TextureCombineOutput.cs" />
-     <Compile Include="Assets\Draw Call Minimizer\Scripts\NEW\Utility\TextureCombineUtility.cs" />
-     <Compile Include="Assets\Draw Call Minimizer\Scripts\NEW\Utility\TexturePosition.cs" />
-     <Compile Include="Assets\Draw Call Minimizer\Scripts\OLD\Misc\ShaderProperties.cs" />
-     <Compile Include="Assets\Draw Call Minimizer\Scripts\OLD\Misc\TextureAtlasInfo.cs" />
-     <Compile Include="Assets\Draw Call Minimizer\Scripts\OLD\Runtime\MeshCombineUtility.cs" />
-     <Compile Include="Assets\Draw Call Minimizer\Scripts\OLD\Runtime\OptimizedCombineChildren.cs" />
-     <Compile Include="Assets\Draw Call Minimizer\Scripts\OLD\Runtime\TextureCombineUtility.cs" />
      <Compile Include="Assets\Game\Scripts\Bonuses\RsCrystal.cs" />
      <Compile Include="Assets\Game\Scripts\Camera\RsCameraAspectScript.cs" />
      <Compile Include="Assets\Game\Scripts\Camera\RsFollowTarget.cs" />
@@ -113,7 +97,6 @@
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Plugins\Android\unityads\res\values\strings.xml" />
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
-     <None Include="Assets\Draw Call Minimizer\Example\ReadMe.txt" />
      <None Include="Assets\Standard Assets\Environment\Water\Water\Shaders\FXWaterPro.shader" />
      <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\WaterInclude.cginc" />
