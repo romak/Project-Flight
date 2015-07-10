@@ -1,0 +1,153 @@
+<Project>
+  <Name>Game</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>Model</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>AirPlaneController</Name>
+        <Access>Public</Access>
+        <Location left="35" top="104" />
+        <Size width="235" height="525" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">public bool useKeyboard</Member>
+        <Member type="Field">public GameObject player</Member>
+        <Member type="Field">public float speed</Member>
+        <Member type="Field">public float rotation</Member>
+        <Member type="Field">public float handling</Member>
+        <Member type="Field">public float rotation</Member>
+        <Member type="Field">private float minAcceleratedSpeed</Member>
+        <Member type="Field">public float forwardAcceleratedSpeed</Member>
+        <Member type="Field">public float backwardAcceleratedSpeed</Member>
+        <Member type="Field">private float maxAcceleratedSpeed</Member>
+        <Member type="Field">public float minRoll</Member>
+        <Member type="Field">public float maxRoll</Member>
+        <Member type="Field">public float roll</Member>
+        <Member type="Field">public float cameraRotationX</Member>
+        <Member type="Field">public float cameraOffsetY</Member>
+        <Member type="Field">public float cameraOffsetZ</Member>
+        <Member type="Field">public Transform cameraTransform</Member>
+        <Member type="Field">public Transform airPlaneTransform</Member>
+        <Member type="Method">public void Awake()</Member>
+        <Member type="Method">public void Start()</Member>
+        <Member type="Method">public void Update()</Member>
+        <Member type="Method">public void FixedUpdate()</Member>
+        <Member type="Method">public void SetupCamera()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Globals</Name>
+        <Access>Public</Access>
+        <Location left="312" top="104" />
+        <Size width="235" height="389" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">public static GameStatus gameStatus</Member>
+        <Member type="Field">public static float sfxVolume</Member>
+        <Member type="Field">public static bool sfxMute</Member>
+        <Member type="Field">public static float musicVolume</Member>
+        <Member type="Field">public static bool musicMute</Member>
+        <Member type="Field">public static int lives</Member>
+        <Member type="Field">public static bool debug</Member>
+        <Member type="Field">public static int score</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Enum">
+        <Name>GameStatus</Name>
+        <Access>Public</Access>
+        <Location left="1113" top="321" />
+        <Size width="235" height="172" />
+        <Collapsed>False</Collapsed>
+        <Value>Play</Value>
+        <Value>Pause</Value>
+        <Value>GameOver</Value>
+        <Value>Crashing</Value>
+      </Entity>
+      <Entity type="Structure">
+        <Name>AirPlane</Name>
+        <Access>Public</Access>
+        <Location left="854" top="321" />
+        <Size width="235" height="172" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">public string name</Member>
+        <Member type="Field">public float speed</Member>
+        <Member type="Field">public float turnForce</Member>
+        <Member type="Field">public float rotateForce</Member>
+      </Entity>
+      <Entity type="Structure">
+        <Name>CameraPosition</Name>
+        <Access>Public</Access>
+        <Location left="1113" top="104" />
+        <Size width="235" height="179" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">public float rotationX</Member>
+        <Member type="Field">public float offsetY</Member>
+        <Member type="Field">public float offsetZ</Member>
+      </Entity>
+      <Entity type="Class">
+        <Name>ForceField</Name>
+        <Access>Public</Access>
+        <Location left="854" top="104" />
+        <Size width="232" height="179" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">public float rotationVelocity</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Player</Name>
+        <Access>Public</Access>
+        <Location left="585" top="104" />
+        <Size width="242" height="389" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">public Camera camera</Member>
+        <Member type="Field">public GameObject bullet</Member>
+        <Member type="Field">public float bulletSpeed</Member>
+        <Member type="Field">public GameObject rocket</Member>
+        <Member type="Field">public float rocketSpeed</Member>
+        <Member type="Field">public GameObject forceField</Member>
+        <Member type="Field">public bool forceFieldEnabled</Member>
+        <Member type="Field">public bool isTouchingGround</Member>
+        <Member type="Field">public AudioSource crashSound</Member>
+        <Member type="Method">public void Awake()</Member>
+        <Member type="Method">public void Start()</Member>
+        <Member type="Method">public void Update()</Member>
+        <Member type="Method">public void OnTriggerEnter()</Member>
+        <Member type="Method">public void OnCollisionEnter()</Member>
+        <Member type="Method">public void OnCollisionStay()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Comment">
+        <Text>Used to control airplane.</Text>
+        <Location left="35" top="10" />
+        <Size width="160" height="50" />
+      </Entity>
+      <Entity type="Comment">
+        <Text>Globals variables used in game</Text>
+        <Location left="312" top="8" />
+        <Size width="194" height="50" />
+      </Entity>
+      <Entity type="Comment">
+        <Text>Describes player logic</Text>
+        <Location left="585" top="7" />
+        <Size width="223" height="50" />
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Comment" first="7" second="0">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+      </Relationship>
+      <Relationship type="Comment" first="8" second="1">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+      </Relationship>
+      <Relationship type="Comment" first="9" second="6">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>697</X>
+          <Y>90</Y>
+        </BendPoint>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+</Project>
