@@ -5,6 +5,9 @@ public class Globals : MonoBehaviour
 {
 
     public static bool debug = true;
+    public static bool showFPS = true;
+    public static bool infiniteFuel = true;
+    public static bool infiniteLife = true;
 
     public static GameStatus gameStatus;
 
@@ -21,6 +24,24 @@ public class Globals : MonoBehaviour
     #endregion
 
     public static int score = 0;
+    public static int curLevel = 0;
+
+    #region Load & Save
+    private static string settingsFileName = "playerSettings.dat";
+    private static string settingsFilePath = Application.persistentDataPath + "/" + settingsFileName;
+
+    [System.Serializable]
+    public class PlayerSettings
+    {
+        public bool debug;
+        public bool showFPS;
+        public bool infiniteFuel;
+        public bool infiniteLife;
+    }
+
+    private static PlayerSettings playerSettings;
+
+    #endregion
 
     public struct CameraPosition
     {
@@ -31,7 +52,6 @@ public class Globals : MonoBehaviour
             this.offsetY = offsetY;
             this.offsetZ = offsetZ;
         }
-
     };
 
     public enum GameStatus
@@ -71,7 +91,14 @@ public class Globals : MonoBehaviour
             this.turnForce = turnSpeed;
             this.rotateForce = rotateSpeed;
         }
-
     };
+
+
+    public static void LoadSettings(){
+    }
+
+    public static void SaveSettings()
+    {
+    }
 
 }

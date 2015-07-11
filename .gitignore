@@ -1,3 +1,9 @@
 /Library
 *.suo
 *.apk
+/Temp
+/obj
+*.cache
+obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+*.cache
+obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache

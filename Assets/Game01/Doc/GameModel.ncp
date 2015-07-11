@@ -8,7 +8,7 @@
         <Name>AirPlaneController</Name>
         <Access>Public</Access>
         <Location left="35" top="104" />
-        <Size width="235" height="525" />
+        <Size width="235" height="587" />
         <Collapsed>False</Collapsed>
         <Member type="Field">public bool useKeyboard</Member>
         <Member type="Field">public GameObject player</Member>
@@ -49,6 +49,16 @@
         <Member type="Field">public static int lives</Member>
         <Member type="Field">public static bool debug</Member>
         <Member type="Field">public static int score</Member>
+        <Member type="Field">public static int curLevel</Member>
+        <Member type="Field">public static bool showFPS</Member>
+        <Member type="Field">public static bool infiniteLife</Member>
+        <Member type="Field">public static bool infiniteFuel</Member>
+        <Member type="Field">public static int renderQuality</Member>
+        <Member type="Field">private static int settingsFileName</Member>
+        <Member type="Field">private static string settingsFilePath</Member>
+        <Member type="Field">private static PlayerSettings playerSettings</Member>
+        <Member type="Method">public static void LoadSettings()</Member>
+        <Member type="Method">public static void SaveSettings()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Enum">
