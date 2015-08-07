@@ -3,7 +3,6 @@ using System.Collections;
 
 public class AirPlaneController : MonoBehaviour
 {
-
     public bool useKeyboard = true;
     /*
     #if UNITY_IPHONE || UNITY_ANDROID || UNITY_BLACKBERRY || UNITY_WP8
@@ -34,11 +33,15 @@ public class AirPlaneController : MonoBehaviour
     public float cameraOffsetY = 10.0f;
     public float cameraOffsetZ = 9.0f;
 
+    private bool moveForward = false;
     private Rigidbody airPlaneRigidBody;
+
+    private EllipsoidParticleEmitter engineParticleEmmiter;
 
     void Awake()
     {
         airPlaneRigidBody = airPlaneTransform.GetComponent<Rigidbody>();
+        engineParticleEmmiter = player.GetComponentInChildren<EllipsoidParticleEmitter>();
     }
 
     void Start()
@@ -48,7 +51,14 @@ public class AirPlaneController : MonoBehaviour
 
     void Update()
     {
+        if (Globals.gameStatus == Globals.GameStatus.Pause)
+            return;
 
+        if (engineParticleEmmiter != null)
+        {
+            engineParticleEmmiter.emit = (Globals.gameStatus == Globals.GameStatus.Crashing) ? false : true;
+            engineParticleEmmiter.maxEnergy = moveForward ? Random.Range(1.5f, 2.5f) : 1f;
+        }
     }
 
     public void FixedUpdate()
@@ -56,6 +66,7 @@ public class AirPlaneController : MonoBehaviour
         if (Globals.gameStatus == Globals.GameStatus.Pause)
             return;
 
+        moveForward = false;
 
         //Camera movement
         Vector3 targetPosition = new Vector3(transform.position.x, transform.position.y + cameraOffsetY, transform.position.z - cameraOffsetZ);
@@ -67,21 +78,14 @@ public class AirPlaneController : MonoBehaviour
                                                      airPlaneTransform.eulerAngles.y,
                                                      Mathf.Clamp(-(airPlaneRigidBody.velocity.x * Time.deltaTime * roll) * 5.0f, minRoll, maxRoll));
 
-
         if (Input.GetKey(KeyCode.LeftArrow))
-        {
             MoveLeft();
-        }
 
         if (Input.GetKey(KeyCode.RightArrow))
-        {
             MoveRight();
-        }
 
         if (Input.GetKey(KeyCode.UpArrow))
-        {
             MoveForward();
-        }
 
         airPlaneRigidBody.AddForce(Vector3.forward * minAcceleratedSpeed);
 
@@ -89,6 +93,8 @@ public class AirPlaneController : MonoBehaviour
 
     public void MoveForward()
     {
+        moveForward = true;
+
         forwardAcceleratedSpeed += forwardAcceleratedSpeed * Time.deltaTime;
         //Check Max acceleration
         if (forwardAcceleratedSpeed <= maxAcceleratedSpeed)
