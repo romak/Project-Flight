@@ -31,6 +31,7 @@ public class RsAdsManager : MonoBehaviour
 
     void AdCallbackhandler(ShowResult result)
     {
+        /*
         switch (result)
         {
             case ShowResult.Finished:
@@ -43,6 +44,7 @@ public class RsAdsManager : MonoBehaviour
                 Debug.Log("I swear this has never happened to me before");
                 break;
         }
+        */
     }
 
     IEnumerator WaitForAd()
